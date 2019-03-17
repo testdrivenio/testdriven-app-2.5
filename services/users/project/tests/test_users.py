@@ -107,7 +107,6 @@ class TestUserService(BaseTestCase):
             self.assertIn('michael@mherman.org', data['data']['email'])
             self.assertIn('success', data['status'])
 
-
     def test_single_user_no_id(self):
         """Ensure error is thrown if an id is not provided."""
         with self.client:
