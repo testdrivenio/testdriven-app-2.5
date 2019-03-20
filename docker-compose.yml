@@ -28,6 +28,21 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
 
+  client:
+    build:
+      context: ./services/client
+      dockerfile: Dockerfile
+    volumes:
+      - './services/client:/usr/src/app'
+      - '/usr/src/app/node_modules'
+    ports:
+      - 3007:3000
+    environment:
+      - NODE_ENV=development
+      - REACT_APP_USERS_SERVICE_URL=${REACT_APP_USERS_SERVICE_URL}
+    depends_on:
+      - users
+
   nginx:
     build:
       context: ./services/nginx
@@ -37,3 +52,4 @@ services:
       - 80:80
     depends_on:
       - users
+      - client
