@@ -2,15 +2,71 @@
 
 exports[`UsersList renders a snapshot properly 1`] = `
 <div>
-  <h4
-    className="box title is-4"
+  <h1
+    className="title is-1"
   >
-    michael
-  </h4>
-  <h4
-    className="box title is-4"
+    All Users
+  </h1>
+  <hr />
+  <br />
+  <table
+    className="table is-hoverable is-fullwidth"
   >
-    michaelherman
-  </h4>
+    <thead>
+      <tr>
+        <th>
+          ID
+        </th>
+        <th>
+          Email
+        </th>
+        <th>
+          Username
+        </th>
+        <th>
+          Active
+        </th>
+        <th>
+          Admin
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          1
+        </td>
+        <td>
+          hermanmu@gmail.com
+        </td>
+        <td>
+          michael
+        </td>
+        <td>
+          true
+        </td>
+        <td>
+          false
+        </td>
+      </tr>
+      <tr>
+        <td>
+          2
+        </td>
+        <td>
+          michael@mherman.org
+        </td>
+        <td>
+          michaelherman
+        </td>
+        <td>
+          true
+        </td>
+        <td>
+          false
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 `;

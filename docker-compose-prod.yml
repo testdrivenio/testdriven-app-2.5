@@ -13,6 +13,7 @@ services:
       - APP_SETTINGS=project.config.ProductionConfig
       - DATABASE_URL=postgres://postgres:postgres@users-db:5432/users_prod
       - DATABASE_TEST_URL=postgres://postgres:postgres@users-db:5432/users_test
+      - SECRET_KEY=${SECRET_KEY}
     depends_on:
       - users-db
 

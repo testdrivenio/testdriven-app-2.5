@@ -1,0 +1,168 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`When not authenticated Login Form renders a snapshot properly 1`] = `
+<div>
+  <h1
+    className="title is-1"
+  >
+    Log In
+  </h1>
+  <hr />
+  <br />
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      className="field"
+    >
+      <input
+        className="input is-medium"
+        name="email"
+        onChange={
+          [MockFunction] {
+            "calls": Array [
+              Array [],
+            ],
+            "results": Array [
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+            ],
+          }
+        }
+        placeholder="Enter an email address"
+        required={true}
+        type="email"
+        value=""
+      />
+    </div>
+    <div
+      className="field"
+    >
+      <input
+        className="input is-medium"
+        name="password"
+        onChange={
+          [MockFunction] {
+            "calls": Array [
+              Array [],
+            ],
+            "results": Array [
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+            ],
+          }
+        }
+        placeholder="Enter a password"
+        required={true}
+        type="password"
+        value=""
+      />
+    </div>
+    <input
+      className="button is-primary is-medium is-fullwidth"
+      type="submit"
+      value="Submit"
+    />
+  </form>
+</div>
+`;
+
+exports[`When not authenticated Register Form renders a snapshot properly 1`] = `
+<div>
+  <h1
+    className="title is-1"
+  >
+    Register
+  </h1>
+  <hr />
+  <br />
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      className="field"
+    >
+      <input
+        className="input is-medium"
+        name="username"
+        onChange={
+          [MockFunction] {
+            "calls": Array [
+              Array [],
+            ],
+            "results": Array [
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+            ],
+          }
+        }
+        placeholder="Enter a username"
+        required={true}
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="field"
+    >
+      <input
+        className="input is-medium"
+        name="email"
+        onChange={
+          [MockFunction] {
+            "calls": Array [
+              Array [],
+            ],
+            "results": Array [
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+            ],
+          }
+        }
+        placeholder="Enter an email address"
+        required={true}
+        type="email"
+        value=""
+      />
+    </div>
+    <div
+      className="field"
+    >
+      <input
+        className="input is-medium"
+        name="password"
+        onChange={
+          [MockFunction] {
+            "calls": Array [
+              Array [],
+            ],
+            "results": Array [
+              Object {
+                "isThrow": false,
+                "value": undefined,
+              },
+            ],
+          }
+        }
+        placeholder="Enter a password"
+        required={true}
+        type="password"
+        value=""
+      />
+    </div>
+    <input
+      className="button is-primary is-medium is-fullwidth"
+      type="submit"
+      value="Submit"
+    />
+  </form>
+</div>
+`;

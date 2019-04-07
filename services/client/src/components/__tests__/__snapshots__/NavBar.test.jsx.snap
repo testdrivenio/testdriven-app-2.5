@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavBar renders a snapshot properly 1`] = `
+<nav
+  aria-label="main navigation"
+  className="navbar is-dark"
+  role="navigation"
+>
+  <section
+    className="container"
+  >
+    <div
+      className="navbar-brand"
+    >
+      <strong
+        className="navbar-item"
+      >
+        Hello, World!
+      </strong>
+      <span
+        className="nav-toggle navbar-burger"
+        onClick={[Function]}
+      >
+        <span />
+        <span />
+        <span />
+      </span>
+    </div>
+    <div
+      className="navbar-menu"
+    >
+      <div
+        className="navbar-start"
+      >
+        <a
+          className="navbar-item"
+          href="/"
+          onClick={[Function]}
+        >
+          Home
+        </a>
+        <a
+          className="navbar-item"
+          href="/about"
+          onClick={[Function]}
+        >
+          About
+        </a>
+      </div>
+      <div
+        className="navbar-end"
+      >
+        <a
+          className="navbar-item"
+          href="/register"
+          onClick={[Function]}
+        >
+          Register
+        </a>
+        <a
+          className="navbar-item"
+          href="/login"
+          onClick={[Function]}
+        >
+          Log In
+        </a>
+      </div>
+    </div>
+  </section>
+</nav>
+`;
