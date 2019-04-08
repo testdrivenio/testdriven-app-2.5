@@ -1,0 +1,6 @@
+{
+  "name": "test-driven-io",
+  "devDependencies": {
+    "cypress": "^3.2.0"
+  }
+}
