@@ -5,6 +5,17 @@ services:
 
 env:
   DOCKER_COMPOSE_VERSION: 1.23.2
+  COMMIT: ${TRAVIS_COMMIT::8}
+  MAIN_REPO: https://github.com/testdrivenio/testdriven-app-2.5.git
+  USERS: test-driven-users
+  USERS_REPO: ${MAIN_REPO}#${TRAVIS_BRANCH}:services/users
+  USERS_DB: test-driven-users_db
+  USERS_DB_REPO: ${MAIN_REPO}#${TRAVIS_BRANCH}:services/users/project/db
+  CLIENT: test-driven-client
+  CLIENT_REPO: ${MAIN_REPO}#${TRAVIS_BRANCH}:services/client
+  SWAGGER: test-driven-swagger
+  SWAGGER_REPO: ${MAIN_REPO}#${TRAVIS_BRANCH}:services/swagger
+  SECRET_KEY: my_precious
 
 before_install:
   - sudo rm /usr/local/bin/docker-compose
@@ -17,7 +28,10 @@ before_script:
   - npm install
 
 script:
-  - bash test.sh stage
+  - bash test-ci.sh $TRAVIS_BRANCH
 
 after_script:
   - docker-compose down
+
+after_success:
+  - bash ./docker-push.sh
