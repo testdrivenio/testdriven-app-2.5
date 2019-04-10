@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormErrors (with login form) renders a snapshot properly 1`] = `
+<div>
+  <ul
+    className="validation-list"
+  >
+    <li
+      className="error"
+    >
+      Email is required.
+    </li>
+    <li
+      className="error"
+    >
+      Password is required.
+    </li>
+  </ul>
+  <br />
+</div>
+`;
+
+exports[`FormErrors (with register form) renders a snapshot properly 1`] = `
+<div>
+  <ul
+    className="validation-list"
+  >
+    <li
+      className="error"
+    >
+      Username must be greater than 5 characters.
+    </li>
+    <li
+      className="error"
+    >
+      Email must be greater than 5 characters.
+    </li>
+    <li
+      className="error"
+    >
+      Email must be a valid email address.
+    </li>
+    <li
+      className="error"
+    >
+      Password must be greater than 10 characters.
+    </li>
+  </ul>
+  <br />
+</div>
+`;

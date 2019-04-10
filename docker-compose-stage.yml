@@ -5,15 +5,13 @@ services:
   users:
     build:
       context: ./services/users
-      dockerfile: Dockerfile
-    volumes:
-      - './services/users:/usr/src/app'
-    ports:
-      - 5001:5000
+      dockerfile: Dockerfile-stage
+    expose:
+      - 5000
     environment:
-      - FLASK_ENV=development
-      - APP_SETTINGS=project.config.DevelopmentConfig
-      - DATABASE_URL=postgres://postgres:postgres@users-db:5432/users_dev
+      - FLASK_ENV=production
+      - APP_SETTINGS=project.config.StagingConfig
+      - DATABASE_URL=postgres://postgres:postgres@users-db:5432/users_stage
       - DATABASE_TEST_URL=postgres://postgres:postgres@users-db:5432/users_test
       - SECRET_KEY=my_precious
     depends_on:
@@ -23,35 +21,31 @@ services:
     build:
       context: ./services/users/project/db
       dockerfile: Dockerfile
-    ports:
-      - 5436:5432
+    expose:
+      - 5432
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
 
   client:
+    container_name: client
     build:
       context: ./services/client
-      dockerfile: Dockerfile
-    volumes:
-      - './services/client:/usr/src/app'
-      - '/usr/src/app/node_modules'
-    ports:
-      - 3007:3000
-    environment:
-      - NODE_ENV=development
-      - REACT_APP_USERS_SERVICE_URL=${REACT_APP_USERS_SERVICE_URL}
+      dockerfile: Dockerfile-stage
+      args:
+        - NODE_ENV=production
+        - REACT_APP_USERS_SERVICE_URL=${REACT_APP_USERS_SERVICE_URL}
+    expose:
+      - 80
     depends_on:
       - users
 
   swagger:
     build:
       context: ./services/swagger
-      dockerfile: Dockerfile
-    volumes:
-        - './services/swagger/swagger.json:/usr/share/nginx/html/swagger.json'
-    ports:
-      - '3008:8080'
+      dockerfile: Dockerfile-stage
+    expose:
+      - 8080
     environment:
       - URL=swagger.json
     depends_on:
@@ -60,7 +54,7 @@ services:
   nginx:
     build:
       context: ./services/nginx
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile-stage
     restart: always
     ports:
       - 80:80

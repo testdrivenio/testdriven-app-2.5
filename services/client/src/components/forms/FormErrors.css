@@ -1,0 +1,33 @@
+.validation-list {
+  padding-left: 25px;
+}
+
+.validation-list > li {
+  display: block;
+}
+
+li:before {
+  font-family: 'Glyphicons Halflings';
+  font-size: 12px;
+  float: left;
+  margin-top: 4px;
+  margin-left: -17px;
+}
+
+.error {
+  color: #FF3860;
+}
+
+.error:before {
+  content: "\00D7";
+  color: #FF3860;
+}
+
+.success {
+  color: #23D160;
+}
+
+.success:before {
+  content: "\2713";
+  color: #23D160;
+}
