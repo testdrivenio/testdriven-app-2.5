@@ -30,8 +30,6 @@ before_script:
 script:
   - bash test-ci.sh $TRAVIS_BRANCH
 
-after_script:
-  - docker-compose down
-
 after_success:
   - bash ./docker-push.sh
+  - bash ./docker-deploy-stage.sh
