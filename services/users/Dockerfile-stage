@@ -13,8 +13,9 @@ WORKDIR /usr/src/app
 COPY ./requirements.txt /usr/src/app/requirements.txt
 RUN pip install -r requirements.txt
 
-# add entrypoint-prod.sh
-COPY ./entrypoint-prod.sh /usr/src/app/entrypoint-stage.sh
+# updated
+# add entrypoint-stage.sh
+COPY ./entrypoint-stage.sh /usr/src/app/entrypoint-stage.sh
 RUN chmod +x /usr/src/app/entrypoint-stage.sh
 
 # add app
