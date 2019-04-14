@@ -41,6 +41,8 @@ services:
     environment:
       - NODE_ENV=development
       - REACT_APP_USERS_SERVICE_URL=${REACT_APP_USERS_SERVICE_URL}
+      - REACT_APP_API_GATEWAY_URL=${REACT_APP_API_GATEWAY_URL}
+      - REACT_APP_EXERCISES_SERVICE_URL=${REACT_APP_EXERCISES_SERVICE_URL}
     depends_on:
       - users
 

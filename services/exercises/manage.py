@@ -58,5 +58,30 @@ def recreate_db():
     db.session.commit()
 
 
+@cli.command('seed_db')
+def seed_db():
+    """Seeds the database."""
+    db.session.add(Exercise(
+        body=('Define a function called sum that takes two integers as '
+              'arguments and returns their sum.'),
+        test_code='print(sum(2, 3))',
+        test_code_solution='5'
+    ))
+    db.session.add(Exercise(
+        body=('Define a function called reverse that takes a string as '
+              'an argument and returns the string in reversed order.'),
+        test_code='print(reverse(racecar))',
+        test_code_solution='racecar'
+    ))
+    db.session.add(Exercise(
+        body=('Define a function called factorial that takes a random number '
+              'as an argument and then returns the factorial of that given '
+              'number.'),
+        test_code='print(factorial(5))',
+        test_code_solution='120'
+    ))
+    db.session.commit()
+
+
 if __name__ == '__main__':
     cli()
