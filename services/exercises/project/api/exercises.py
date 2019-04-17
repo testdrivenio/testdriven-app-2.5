@@ -2,7 +2,7 @@
 
 
 from sqlalchemy import exc
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 from flask_restful import Resource, Api
 
 from project import db
