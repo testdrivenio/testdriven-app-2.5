@@ -21,6 +21,7 @@ def ping_pong():
         'message': 'pong!'
     })
 
+
 class ExerciseList(Resource):
 
     method_decorators = {'post': [authenticate_restful]}
