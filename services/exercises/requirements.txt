@@ -1,0 +1,12 @@
+coverage==4.5.3
+flake8===3.7.7
+Flask==1.0.2
+flask-cors==3.0.7
+flask-debugtoolbar==0.10.1
+flask-migrate==2.4.0
+Flask-RESTful==0.3.7
+Flask-SQLAlchemy==2.3.2
+Flask-Testing==0.7.1
+gunicorn==19.9.0
+psycopg2-binary==2.7.7
+requests==2.21.0

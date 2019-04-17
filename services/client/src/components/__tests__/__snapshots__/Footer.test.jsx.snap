@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer renders a snapshot properly 1`] = `
+<footer
+  className="footer"
+>
+  <div
+    className="container"
+  >
+    <small
+      className="has-text-grey"
+    >
+      <span>
+        Copyright 2019 
+        <a
+          href="http://testdriven.io"
+        >
+          TestDriven.io
+        </a>
+        .
+      </span>
+    </small>
+  </div>
+</footer>
+`;
