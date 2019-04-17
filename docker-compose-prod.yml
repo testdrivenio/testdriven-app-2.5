@@ -56,13 +56,13 @@ services:
   exercises:
     build:
       context: ./services/exercises
-      dockerfile: Dockerfile-stage
+      dockerfile: Dockerfile-prod
     expose:
       - 5000
     environment:
       - FLASK_ENV=production
       - APP_SETTINGS=project.config.StagingConfig
-      - DATABASE_URL=postgres://postgres:postgres@exercises-db:5432/exercises_stage
+      - DATABASE_URL=postgres://postgres:postgres@exercises-db:5432/exercises_prod
       - DATABASE_TEST_URL=postgres://postgres:postgres@exercises-db:5432/exercises_test
     depends_on:
       - users
