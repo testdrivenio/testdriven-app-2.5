@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Exercises renders a snapshot properly when authenticated 1`] = `
+<div>
+  <h5
+    className="title is-5"
+  >
+    Define a function called sum that takes two integers
+    as arguments and returns their sum.
+  </h5>
+  <div>
+    <button
+      className="button is-primary"
+      disabled={false}
+      onClick={[Function]}
+    >
+      Run Code
+    </button>
+  </div>
+  <br />
+  <br />
+</div>
+`;
+
+exports[`Exercises renders a snapshot properly when not authenticated 1`] = `
+<div>
+  <h5
+    className="title is-5"
+  >
+    Define a function called sum that takes two integers
+    as arguments and returns their sum.
+  </h5>
+  <br />
+  <br />
+</div>
+`;
