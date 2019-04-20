@@ -75,7 +75,7 @@ then
       service="testdriven-scores-prod-service"
       template="ecs_scores_prod_taskdefinition.json"
       task_template=$(cat "ecs/$template")
-      task_def=$(printf "$task_template" $AWS_ACCOUNT_ID "tbd")
+      task_def=$(printf "$task_template" $AWS_ACCOUNT_ID $AWS_RDS_SCORES_URI)
       echo "$task_def"
       register_definition
 
