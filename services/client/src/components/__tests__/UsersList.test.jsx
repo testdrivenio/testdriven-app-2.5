@@ -6,20 +6,25 @@ import UsersList from '../UsersList';
 
 const users = [
   {
-    'active': true,
-    'admin': false,
-    'email': 'hermanmu@gmail.com',
-    'id': 1,
-    'username': 'michael'
+    active: true,
+    admin: false,
+    email: 'hermanmu@gmail.com',
+    id: 1,
+    username: 'michael'
   },
   {
-    'active': true,
-    'admin': false,
-    'email': 'michael@mherman.org',
-    'id': 2,
-    'username': 'michaelherman'
+    active: true,
+    admin: false,
+    email: 'michael@mherman.org',
+    id: 2,
+    username: 'michaelherman'
   }
-]
+];
+
+beforeEach(() => {
+  console.error = jest.fn();
+  console.error.mockClear();
+});
 
 test('UsersList renders properly', () => {
   const wrapper = shallow(<UsersList users={users}/>);
@@ -46,6 +51,15 @@ test('UsersList renders properly', () => {
   expect(td.get(2).props.children).toBe('michael');
   expect(td.get(3).props.children).toBe('true');
   expect(td.get(4).props.children).toBe('false');
+});
+
+test('UsersList does not render properly when not all props are defined', () => {
+  const wrapper = shallow(<UsersList/>);
+  expect(wrapper.find('h1').get(0).props.children).toBe('All Users');
+  // table
+  const table = wrapper.find('table');
+  expect(table.length).toBe(1);
+  expect(console.error).toHaveBeenCalledTimes(1);
 });
 
 test('UsersList renders a snapshot properly', () => {
