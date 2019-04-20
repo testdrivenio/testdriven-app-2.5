@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, simulate } from 'enzyme';
 import renderer from 'react-test-renderer';
 import { MemoryRouter, Switch, Redirect } from 'react-router-dom';
 
@@ -14,8 +14,10 @@ const testData = [
       email: '',
       password: ''
     },
-    loginUser: jest.fn(),
     isAuthenticated: false,
+    loginUser: jest.fn(),
+    createMessage: jest.fn(),
+    getUsers: jest.fn(),
   },
   {
     formType: 'Login',
@@ -24,12 +26,18 @@ const testData = [
       email: '',
       password: ''
     },
-    loginUser: jest.fn(),
     isAuthenticated: false,
+    loginUser: jest.fn(),
+    createMessage: jest.fn(),
+    getUsers: jest.fn(),
   }
-]
+];
 
 describe('When not authenticated', () => {
+  beforeEach(() => {
+    console.error = jest.fn();
+    console.error.mockClear();
+  });
   testData.forEach((el) => {
     const component = <Form {...el} />;
     it(`${el.formType} Form renders properly`, () => {
@@ -42,8 +50,13 @@ describe('When not authenticated', () => {
       expect(formGroup.get(0).props.children.props.name).toBe(
         Object.keys(el.formData)[0]);
       expect(formGroup.get(0).props.children.props.value).toBe('');
+      expect(console.error).toHaveBeenCalledTimes(0);
     });
-
+    it(`${el.formType} Form should be disabled by default`, () => {
+      const wrapper = shallow(component);
+      const input = wrapper.find('input[type="submit"]');
+      expect(input.get(0).props.disabled).toEqual(true);
+    });
     it(`${el.formType} Form submits the form properly`, () => {
       const wrapper = shallow(component);
       wrapper.instance().handleUserFormSubmit = jest.fn();
@@ -62,26 +75,26 @@ describe('When not authenticated', () => {
       const tree = renderer.create(component).toJSON();
       expect(tree).toMatchSnapshot();
     });
-
-    it(`${el.formType} Form should be disabled by default`, () => {
-      const wrapper = shallow(component);
-      const input = wrapper.find('input[type="submit"]');
-      expect(input.get(0).props.disabled).toEqual(true);
-    });
   })
+  it(`${testData[0].formType} Form does not render properly when not all props are defined`, () => {
+    delete testData[0].createMessage
+    const updatedComponent = <Form {...testData[0]} />;
+    shallow(updatedComponent);
+    expect(console.error).toHaveBeenCalledTimes(1);
+  });
 });
 
 describe('When authenticated', () => {
+  beforeEach(() => {
+    console.error = jest.fn();
+    console.error.mockClear();
+  });
   testData.forEach((el) => {
-    const component = <Form
-      formType={el.formType}
-      formData={el.formData}
-      isAuthenticated={true}
-    />;
-
+    const component = <Form {...el} />;
     it(`${el.formType} redirects properly`, () => {
       const wrapper = shallow(component);
-      expect(wrapper.find('Redirect')).toHaveLength(1);
+      expect(wrapper.find('Redirect')).toHaveLength(0);
+      expect(console.error).toHaveBeenCalledTimes(0);
     });
   })
 });
