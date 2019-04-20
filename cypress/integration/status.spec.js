@@ -17,6 +17,9 @@ describe('Status', () => {
   });
 
   it('should display user info if a user is logged in', () => {
+    cy.server();
+    cy.route('POST', 'auth/register').as('createUser');
+
     // register user
     cy
       .visit('/register')
@@ -24,9 +27,7 @@ describe('Status', () => {
       .get('input[name="email"]').type(email)
       .get('input[name="password"]').type(password)
       .get('input[type="submit"]').click()
-      .get('.navbar-burger').click();
-
-    cy.wait(700);
+      .wait('@createUser');
 
     // assert '/status' is displayed properly
     cy.visit('/status');
