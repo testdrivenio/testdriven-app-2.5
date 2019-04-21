@@ -20,7 +20,7 @@ describe('Index', () => {
       .get('.notification.is-success').should('not.be.visible');
   });
 
-  it('should display the page correctly if a user is logged in`', () => {
+  it('should display the page correctly if a user is logged in', () => {
     cy.server();
     cy.route('POST', 'auth/register').as('createUser');
 
@@ -31,7 +31,7 @@ describe('Index', () => {
       .get('input[name="email"]').type(email)
       .get('input[name="password"]').type(password)
       .get('input[type="submit"]').click()
-      .wait('@createUser')
+      .wait('@createUser');
 
     // assert '/' is displayed properly
     cy
@@ -43,6 +43,7 @@ describe('Index', () => {
       .get('a').contains('Log In').should('not.be.visible')
       .get('a').contains('Swagger')
       .get('a').contains('Users')
+      .get('.navbar-burger').click()
       .get('button').contains('Run Code')
       .get('.notification.is-warning').should('not.be.visible')
       .get('.notification.is-success').should('not.be.visible');
