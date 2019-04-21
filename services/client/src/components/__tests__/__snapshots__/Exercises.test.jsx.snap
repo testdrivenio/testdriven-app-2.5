@@ -16,5 +16,10 @@ exports[`Exercises renders a snapshot properly 1`] = `
       Please log in to submit an exercise.
     </span>
   </div>
+  <div
+    className="field is-grouped"
+  >
+     
+  </div>
 </div>
 `;
