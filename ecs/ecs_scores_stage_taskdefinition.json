@@ -27,11 +27,11 @@
         },
         {
           "name": "USERS_SERVICE_URL",
-          "value": "LOAD_BALANCER_STAGE_DNS_NAME"
+          "value": "http://testdriven-staging-alb-741461415.us-west-1.elb.amazonaws.com"
         },
         {
           "name": "EXERCISES_SERVICE_URL",
-          "value": "LOAD_BALANCER_STAGE_DNS_NAME"
+          "value": "http://testdriven-staging-alb-741461415.us-west-1.elb.amazonaws.com"
         }
       ],
       "links": [
