@@ -24,7 +24,7 @@
         {
           "name": "DATABASE_URL",
           "value": "%s"
-        }
+        },
         {
           "name": "USERS_SERVICE_URL",
           "value": "http://testdriven-production-alb-770072310.us-west-1.elb.amazonaws.com"
